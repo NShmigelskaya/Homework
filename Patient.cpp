@@ -19,7 +19,7 @@ void AddPatient(int &patient_count, Patient patients[]) {
 	std::cin >> patients[id].city;
 	std::cout << "Age:" << std::endl;
 	std::cin >> patients[id].age;
-	std::cout << "Åñëè ïîë æåíñêèé ââåäèòå 1, èíà÷å ââåäèòå 0:" << std::endl;
+	std::cout << "Ğ•ÑĞ»Ğ¸ Ğ¿Ğ¾Ğ» Ğ¶ĞµĞ½ÑĞºĞ¸Ğ¹ Ğ²Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ 1, Ğ¸Ğ½Ğ°Ñ‡Ğµ Ğ²Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ 0:" << std::endl;
 	std::cout << "Sex:" << std::endl;
 	std::cin >> patients[id].sex;
 	std::cout << "Number of visitings:" << std::endl;
@@ -29,7 +29,7 @@ void AddPatient(int &patient_count, Patient patients[]) {
 void Info(int id, int patient_count, Patient patients[]) {
 
 	if (id > patient_count) {
-		std::cout << "Íåò òàêîãî ïàöèåíòà!" << std::endl;
+		std::cout << "ĞĞµÑ‚ Ñ‚Ğ°ĞºĞ¾Ğ³Ğ¾ Ğ¿Ğ°Ñ†Ğ¸ĞµĞ½Ñ‚Ğ°!" << std::endl;
 	}
 	else {
 		std::cout << "Name:" << patients[id].name << std::endl;
@@ -53,16 +53,16 @@ int main() {
 
 	char digit = 'Y';
 	for (;;) {
-		std::cout << "Åñëè õîòèòå äîáàâèòü ïîëüçîâàòåëÿ , íàæìèòå Y." << std::endl;
-		std::cout << "Åñëè õîòèòå óçíàòü èíôîğìàöèş î ïîëüçîâàòåëå, íàæìèòå I." << std::endl;
-		std::cout << "Åñëè õîòèòå âûéòè èç ïğîãğàììû , íàæìèòå P." << std::endl;
+		std::cout << "Ğ•ÑĞ»Ğ¸ Ñ…Ğ¾Ñ‚Ğ¸Ñ‚Ğµ Ğ´Ğ¾Ğ±Ğ°Ğ²Ğ¸Ñ‚ÑŒ Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»Ñ , Ğ½Ğ°Ğ¶Ğ¼Ğ¸Ñ‚Ğµ Y." << std::endl;
+		std::cout << "Ğ•ÑĞ»Ğ¸ Ñ…Ğ¾Ñ‚Ğ¸Ñ‚Ğµ ÑƒĞ·Ğ½Ğ°Ñ‚ÑŒ Ğ¸Ğ½Ñ„Ğ¾Ñ€Ğ¼Ğ°Ñ†Ğ¸Ñ Ğ¾ Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»Ğµ, Ğ½Ğ°Ğ¶Ğ¼Ğ¸Ñ‚Ğµ I." << std::endl;
+		std::cout << "Ğ•ÑĞ»Ğ¸ Ñ…Ğ¾Ñ‚Ğ¸Ñ‚Ğµ Ğ²Ñ‹Ğ¹Ñ‚Ğ¸ Ğ¸Ğ· Ğ¿Ñ€Ğ¾Ğ³Ñ€Ğ°Ğ¼Ğ¼Ñ‹ , Ğ½Ğ°Ğ¶Ğ¼Ğ¸Ñ‚Ğµ P." << std::endl;
 		std::cin >> digit;
 		if (digit == 'Y' or digit == 'y') {
 			AddPatient(patient_count, patients);
 		}
 		else if (digit == 'I' or digit == 'i') {
 			int id = 0;
-			std::cout << "Ââåäèòå id ïàöèåíòà:" << std::endl;
+			std::cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ id Ğ¿Ğ°Ñ†Ğ¸ĞµĞ½Ñ‚Ğ°:" << std::endl;
 			std::cin >> id;
 			Info(id, patient_count, patients);
 		}
@@ -70,6 +70,6 @@ int main() {
 			break;
 		}
 		else {
-			std::cout << "Âû ââåëè íåèçâåñòíóş ñèñòåìå êîìàíäó!" << std::endl;
+			std::cout << "Ğ’Ñ‹ Ğ²Ğ²ĞµĞ»Ğ¸ Ğ½ĞµĞ¸Ğ·Ğ²ĞµÑÑ‚Ğ½ÑƒÑ ÑĞ¸ÑÑ‚ĞµĞ¼Ğµ ĞºĞ¾Ğ¼Ğ°Ğ½Ğ´Ñƒ!" << std::endl;
 		}
 	}

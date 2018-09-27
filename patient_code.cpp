@@ -26,7 +26,7 @@ public:
 		std::cin >> this->patients[id]->city;
 		std::cout << "Age:" << std::endl;
 		std::cin >> this->patients[id]->age;
-		std::cout << "Åñëè ïîë æåíñêèé ââåäèòå 1, èíà÷å ââåäèòå 0:" << std::endl;
+		std::cout << "Ð•ÑÐ»Ð¸ Ð¿Ð¾Ð» Ð¶ÐµÐ½ÑÐºÐ¸Ð¹ Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ 1, Ð¸Ð½Ð°Ñ‡Ðµ Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ 0:" << std::endl;
 		std::cout << "Sex:" << std::endl;
 		std::cin >> this->patients[id]->sex;
 		std::cout << "Number of visitings:" << std::endl;
@@ -35,7 +35,7 @@ public:
 	}
 	void Info(int id) {
 		if (id > this->patient_count) {
-			std::cout << "Íåò òàêîãî ïàöèåíòà!" << std::endl;
+			std::cout << "ÐÐµÑ‚ Ñ‚Ð°ÐºÐ¾Ð³Ð¾ Ð¿Ð°Ñ†Ð¸ÐµÐ½Ñ‚Ð°!" << std::endl;
 		}
 		else {
 			std::cout << "Name:" << this->patients[id]->name << std::endl;
@@ -52,51 +52,46 @@ public:
 			std::cout << "Visit count:" << this->patients[id]->visit_count << std::endl;
 		}
 	}
-	
-	void copy(DataBase*dB2) {
+	DataBase *dB1;
+	DataBase *dB2;
+	void copy(DataBase *dB2) {
 		for (int id = 0; id = this->patient_count; id++) {
-			dB2->patients[id]->name = this->patients[id]->name;
-			dB2->patients[id]->surname = this->patients[id]->surname;
-			dB2->patients[id]->city = this->patients[id]->city;
-			dB2->patients[id]->age = this->patients[id]->age;
-			dB2->patients[id]->sex = this->patients[id]->sex;
-			dB2->patients[id]->visit_count = this->patients[id]->visit_count;
+			dB2->patients[id] = this->patients[id];
 		}
 		dB2->patient_count = this->patient_count;
 	}
+	
 };
 int main() {
 	setlocale(LC_ALL, "Russian");
 	int patient_count = 0;
 	Patient patients[100];
 	DataBase dB;
-	DataBase dB1;
-	DataBase dB2;
 	char digit = 'Y';
-		for (;;) {
-			std::cout << "Åñëè õîòèòå äîáàâèòü ïîëüçîâàòåëÿ , íàæìèòå Y." << std::endl;
-			std::cout << "Åñëè õîòèòå óçíàòü èíôîðìàöèþ î ïîëüçîâàòåëå, íàæìèòå I." << std::endl;
-			std::cout << "Åñëè õîòèòå âûéòè èç ïðîãðàììû , íàæìèòå P." << std::endl;
-			std::cin >> digit;
-			int id = 0;
-			switch (digit) {
-			case 'Y':
-			case 'y':
-				dB.AddPatient();
-				break;
-			case 'i':
-			case 'I':
-				std::cout << "Ââåäèòå id ïàöèåíòà:" << std::endl;
-				std::cin >> id;
-				dB.Info(id);
-				break;
-			case 'P':
-			case 'p':
-				return 0;
-			default:
-				std::cout << "Âû ââåëè íåèçâåñòíóþ ñèñòåìå êîìàíäó!" << std::endl;
-			}
+	
+	for (;;) {
+		std::cout << "Ð•ÑÐ»Ð¸ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð´Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ , Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ Y." << std::endl;
+		std::cout << "Ð•ÑÐ»Ð¸ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ ÑƒÐ·Ð½Ð°Ñ‚ÑŒ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸ÑŽ Ð¾ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ðµ, Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ I." << std::endl;
+		std::cout << "Ð•ÑÐ»Ð¸ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð²Ñ‹Ð¹Ñ‚Ð¸ Ð¸Ð· Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ñ‹ , Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ P." << std::endl;
+		std::cin >> digit;
+		int id = 0;
+		switch (digit) {
+		case 'Y':
+		case 'y':
+			dB.AddPatient();
+			break;
+		case 'i':
+		case 'I':
+			std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ id Ð¿Ð°Ñ†Ð¸ÐµÐ½Ñ‚Ð°:" << std::endl;
+			std::cin >> id;
+			dB.Info(id);
+			break;
+		case 'P':
+		case 'p':
+			return 0;
+		default:
+			std::cout << "Ð’Ñ‹ Ð²Ð²ÐµÐ»Ð¸ Ð½ÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½ÑƒÑŽ ÑÐ¸ÑÑ‚ÐµÐ¼Ðµ ÐºÐ¾Ð¼Ð°Ð½Ð´Ñƒ!" << std::endl;
 		}
 	}
-
+}
 

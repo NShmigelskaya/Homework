@@ -66,15 +66,19 @@ int main()
 	case 1:
 		AssertEqual(a, b);
 		ASSERT_EQUAL(a, b);
+		break;
 	case 2:
 		AssertNotEqual(a, b);
 		ASSERT_NOT_EQUAL(a, b);
+		break;
 	case 3:
 		AssertTrue(a);
 		ASSERT_TRUE(a);
+		break;
 	case 4:
 		AssertFalse(b);
 		ASSERT_FALSE(b);
+	 	break;
 	}
 	system("pause");
 	return 0;

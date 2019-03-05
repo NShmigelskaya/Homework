@@ -2,43 +2,35 @@
 #include <iostream>
 #include <fstream>
 #include <unistd.h>
-
-#include "drawManager.cpp"
-#include "DataStorge.cpp"
-#include "Scrolling.cpp"
-
+#include "DataStorage.h"
+#include "DrawManager.h"
+#include "EventManager.h"
 
 
-int main() {
+/*int main() {
 
-    EventMeneger EM;
+    EventManager EM;
     DataStorage DS;
-    DS.filename = "had-code.txt";
-    std::string text = DS.readFromFile();
-    int i = 0;
+    DS.text->filename = "hackcode.txt";
+    DS.text->readFromFile();
     sf::Event event;
 
-    EM.text = text;
-
     DrawManager DM;
-
+    DM.DS = &DS;
+    EM.DS = &DS;
     DM.init();
 
-    while((DM.window)->isOpen())
+    while((DS.window).isOpen())
     {
-        std::string s = EM.s;
-        while((DM.window)->pollEvent(event))
+        while((DS.window).pollEvent(event))
         {
             EM.event = event;
             EM.EventCatcher();
-            if (event.type == sf::Event::Closed){
-                (DM.window)->close();
-            }
-        }    
+        }
 
-        DM.SetText(s);
         DM.draw();
         usleep(50000);
     }
     return 0;
 }
+*/

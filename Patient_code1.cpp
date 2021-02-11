@@ -26,7 +26,7 @@ public:
 		std::cin >> this->patients[id]->city;
 		std::cout << "Age:" << std::endl;
 		std::cin >> this->patients[id]->age;
-		std::cout << "Åñëè ïîë æåíñêèé ââåäèòå 1, èíà÷å ââåäèòå 0:" << std::endl;
+		std::cout << "Ğ•ÑĞ»Ğ¸ Ğ¿Ğ¾Ğ» Ğ¶ĞµĞ½ÑĞºĞ¸Ğ¹ Ğ²Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ 1, Ğ¸Ğ½Ğ°Ñ‡Ğµ Ğ²Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ 0:" << std::endl;
 		std::cout << "Sex:" << std::endl;
 		std::cin >> this->patients[id]->sex;
 		std::cout << "Number of visitings:" << std::endl;
@@ -35,7 +35,7 @@ public:
 	}
 	void Info(int id) {
 		if (id > this->patient_count) {
-			std::cout << "Íåò òàêîãî ïàöèåíòà!" << std::endl;
+			std::cout << "ĞĞµÑ‚ Ñ‚Ğ°ĞºĞ¾Ğ³Ğ¾ Ğ¿Ğ°Ñ†Ğ¸ĞµĞ½Ñ‚Ğ°!" << std::endl;
 		}
 		else {
 			std::cout << "Name:" << this->patients[id]->name << std::endl;
@@ -52,11 +52,15 @@ public:
 			std::cout << "Visit count:" << this->patients[id]->visit_count << std::endl;
 		}
 	}
-	DataBase *dB1;
-	DataBase *dB2;
 	void copy(DataBase *dB2) {
 		for (int id = 0; id = this->patient_count; id++) {
 			dB2->patients[id] = this->patients[id];
+			dB2->patients[id]->name = this->patients[id]->name;
+			dB2->patients[id]->surname = this->patients[id]->surname;
+			dB2->patients[id]->age = this->patients[id]->age;
+			dB2->patients[id]->city = this->patients[id]->city;
+			dB2->patients[id]->sex = this->patients[id]->sex;
+			dB2->patients[id]->visit_count = this->patients[id]->visit_count;
 		}
 		dB2->patient_count = this->patient_count;
 	}
@@ -70,9 +74,9 @@ int main() {
 	char digit = 'Y';
 	
 	for (;;) {
-		std::cout << "Åñëè õîòèòå äîáàâèòü ïîëüçîâàòåëÿ , íàæìèòå Y." << std::endl;
-		std::cout << "Åñëè õîòèòå óçíàòü èíôîğìàöèş î ïîëüçîâàòåëå, íàæìèòå I." << std::endl;
-		std::cout << "Åñëè õîòèòå âûéòè èç ïğîãğàììû , íàæìèòå P." << std::endl;
+		std::cout << "Ğ•ÑĞ»Ğ¸ Ñ…Ğ¾Ñ‚Ğ¸Ñ‚Ğµ Ğ´Ğ¾Ğ±Ğ°Ğ²Ğ¸Ñ‚ÑŒ Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»Ñ , Ğ½Ğ°Ğ¶Ğ¼Ğ¸Ñ‚Ğµ Y." << std::endl;
+		std::cout << "Ğ•ÑĞ»Ğ¸ Ñ…Ğ¾Ñ‚Ğ¸Ñ‚Ğµ ÑƒĞ·Ğ½Ğ°Ñ‚ÑŒ Ğ¸Ğ½Ñ„Ğ¾Ñ€Ğ¼Ğ°Ñ†Ğ¸Ñ Ğ¾ Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»Ğµ, Ğ½Ğ°Ğ¶Ğ¼Ğ¸Ñ‚Ğµ I." << std::endl;
+		std::cout << "Ğ•ÑĞ»Ğ¸ Ñ…Ğ¾Ñ‚Ğ¸Ñ‚Ğµ Ğ²Ñ‹Ğ¹Ñ‚Ğ¸ Ğ¸Ğ· Ğ¿Ñ€Ğ¾Ğ³Ñ€Ğ°Ğ¼Ğ¼Ñ‹ , Ğ½Ğ°Ğ¶Ğ¼Ğ¸Ñ‚Ğµ P." << std::endl;
 		std::cin >> digit;
 		int id = 0;
 		switch (digit) {
@@ -82,7 +86,7 @@ int main() {
 			break;
 		case 'i':
 		case 'I':
-			std::cout << "Ââåäèòå id ïàöèåíòà:" << std::endl;
+			std::cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ id Ğ¿Ğ°Ñ†Ğ¸ĞµĞ½Ñ‚Ğ°:" << std::endl;
 			std::cin >> id;
 			dB.Info(id);
 			break;
@@ -90,7 +94,7 @@ int main() {
 		case 'p':
 			return 0;
 		default:
-			std::cout << "Âû ââåëè íåèçâåñòíóş ñèñòåìå êîìàíäó!" << std::endl;
+			std::cout << "Ğ’Ñ‹ Ğ²Ğ²ĞµĞ»Ğ¸ Ğ½ĞµĞ¸Ğ·Ğ²ĞµÑÑ‚Ğ½ÑƒÑ ÑĞ¸ÑÑ‚ĞµĞ¼Ğµ ĞºĞ¾Ğ¼Ğ°Ğ½Ğ´Ñƒ!" << std::endl;
 		}
 	}
 }
